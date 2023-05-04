@@ -7,9 +7,9 @@
 
     - Entity Framework Core
 
-    - MsSql Server
+    - MSSql Server
 
-    -Generic Repository Pattern 
+    -Generic Repository Design Pattern 
  
     -Authentication, Authorization
  
