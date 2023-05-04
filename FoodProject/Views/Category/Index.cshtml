@@ -1,0 +1,42 @@
+﻿@model List<FoodProject.Data.Models.Category>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2> Categori List</h2>
+
+<br />
+@using (Html.BeginForm()){
+
+
+    <p>
+
+        Ürün Adı @Html.TextBox("p")
+        <input type="submit" value="Ara"/>
+    </p>
+
+
+
+}
+<table class="table table-bordered">
+    <tr>
+         <th>ID</th>
+         <th>Category Name</th>
+         <th>Status</th>
+         <th>Delete</th>
+         <th>Update</th>
+    </tr>
+    @foreach(var temp in Model){
+    <tr>
+        <td>@temp.CategoryId</td>
+        <td>@temp.CategoryName</td>
+        <td>@temp.Status</td>
+        <td><a href="/Category/CategoryDelete/@temp.CategoryId" class="btn btn-danger">Delete</a> </td>
+        <td><a href="/Category/CategoryGet/@temp.CategoryId" class="btn btn-dark" style="background-color:black"> Update</a> </td>
+        <td></td>
+      
+    </tr>
+    }
+</table>
+<a href="/Category/CategoryAdd" class=" btn btn-primary"> New Category</a>

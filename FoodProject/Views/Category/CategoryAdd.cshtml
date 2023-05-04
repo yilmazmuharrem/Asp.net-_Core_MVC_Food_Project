@@ -1,0 +1,25 @@
+﻿@model FoodProject.Data.Models.Category
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2> Category Add</h2>
+<br />
+
+
+@using (Html.BeginForm("CategoryAdd","Category",FormMethod.Post)){
+    @Html.LabelFor(x=>x.CategoryName)
+    @Html.TextBoxFor(x=>x.CategoryName,new { @class="form-control"})
+    @Html.ValidationMessageFor(x=>x.CategoryName,"*",new { @style="color:red"})
+    <br />
+     @Html.LabelFor(x=>x.CategoryDescription)
+    @Html.TextBoxFor(x=>x.CategoryDescription,new { @class="form-control"})
+
+    <br />
+
+    <button class="btn-info"> Kaydet</button>
+
+
+
+}

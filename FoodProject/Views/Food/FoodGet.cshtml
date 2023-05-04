@@ -1,0 +1,54 @@
+﻿@model FoodProject.Data.Models.Food
+@{
+    ViewData["Title"] = "FoodGet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h1>AddFood</h1>
+
+@using (Html.BeginForm("FoodUpdate","Food",FormMethod.Post)){
+
+    @Html.Label("Food ID")
+     @Html.LabelFor(x=>x.FoodID)
+    @Html.TextBoxFor(x=>x.FoodID,new { @class="form-control", @readonly="readonly"})
+
+    <br />
+
+
+
+    @Html.Label("Food Name")
+    @Html.TextBoxFor(x=>x.Name,new { @class="form-control"})
+
+    <br />
+     @Html.Label("Stock ")
+     @Html.TextBoxFor(x=>x.Stock,new { @class="form-control"})
+
+    <br />
+
+    @Html.Label("Price ")
+     @Html.TextBoxFor(x=>x.Price,new { @class="form-control"})
+
+    <br />
+
+    @Html.Label("İmage Url ")
+     @Html.TextBoxFor(x=>x.ImageURL,new { @class="form-control"})
+
+    <br />
+
+    @Html.Label("Category ")
+    @Html.DropDownListFor(x=>x.CategoryID,(List<SelectListItem>)ViewBag.data, new {@class="form-control"});
+
+    <br />
+
+    @Html.Label("Description ")
+     @Html.TextAreaFor(x=>x.Description,new { @class="form-control"})
+
+    <br />
+
+    <button class="btn-primary"> Güncelle </button>
+
+
+
+}

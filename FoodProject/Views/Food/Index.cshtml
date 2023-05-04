@@ -1,0 +1,132 @@
+﻿
+
+@model IPagedList<FoodProject.Data.Models.Food>
+
+
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Mvc.Common;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2> Food List</h2>
+
+<br />
+
+<table class="table table-bordered">
+    <tr>
+             <th>ID</th>
+             <th>Food Name</th>
+             <th>Price</th>
+             <th>Stock</th>
+             <th>Category Name</th>
+             <th>Delete</th>
+             <th>Update</th>
+             <th>Details</th>
+        
+    </tr>
+    @foreach (var temp in Model)
+    {
+        <tr>
+           <th>@temp.FoodID</th>
+            <td>@temp.Name</td>
+            <td>@temp.Price</td>
+            <td>@temp.Stock</td>
+            <td>@temp.Category.CategoryName</td>
+            <td><a href="/Food/Delete/@temp.FoodID" class="btn btn-danger">Delete</a> </td>
+            <td><a href="/Food/FoodGet/@temp.FoodID" class="btn btn-info"  > Update</a> </td>
+            <td><a href="#" class=" btn btn-primary"> Details </a> </td>
+            <td></td>
+
+        </tr>
+    }
+</table>
+
+@*@Html.PagedListPager((IPagedList)Model,page=>Url.Action("Index",new {page}))
+
+*@
+   <div class="pull-right">
+                @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index",
+                   new
+                        {
+                            page                
+
+                 }),
+                 new PagedListRenderOptionsBase
+                 {
+                     LiElementClasses = new string[] { "page-item" },
+                     PageClasses = new string[] { "page-link" },
+                     Display = PagedListDisplayMode.IfNeeded
+
+                      })
+            </div>
+
+<a href="/Food/AddFood/" class=" btn btn-primary"> New Food</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@model List<FoodProject.Data.Models.Food>
+    @{
+        ViewData["Title"] = "Index";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+
+    <h2> Categori List</h2>
+
+    <br />
+    <form method="post" action="sil">
+    <table class="table table-bordered">
+        <tr>
+             <th>ID</th>
+             <th>Food Name</th>
+             <th>Price</th>
+             <th>Stock</th>
+             <th>Category Name</th>
+             <th>Delete</th>
+             <th>Update</th>
+             <th>Details</th>
+        </tr>
+        @foreach(var temp in Model){
+        <tr>
+            <th>@temp.FoodID</th>
+            <td>@temp.Name</td>
+            <td>@temp.Price</td>
+            <td>@temp.Stock</td>
+            <td>@temp.Category.CategoryName</td>
+            <td><a href="/Category/Index" class="btn btn-danger">Sil</a> </td>
+            <td><a href="/Category/Index" class="btn btn-dark" style="background-color:black"> Update</a> </td>
+             <td><a href="/Food/sil/@temp.FoodID" class="btn btn-info">Delete</a> </td>
+
+            <td></td>
+
+        </tr>
+        }
+    </table>
+    </form>
+
+    <a href="/Food/AddFood/" class=" btn btn-primary"> New Food</a>*@
+
