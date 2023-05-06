@@ -69,7 +69,7 @@ namespace FoodProject
             app.UseStaticFiles();
 
             app.UseRouting();
-            //sýrasýna dikkat ediyoruz..
+            //sÃ½rasÃ½na dikkat ediyoruz..
 
             app.UseAuthorization();
             app.UseAuthentication();
@@ -78,7 +78,7 @@ namespace FoodProject
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Category}/{action=Index}/{id?}");
+                    pattern: "{controller=Default}/{action=Index}/{id?}");
 
             });
 
@@ -94,7 +94,7 @@ namespace FoodProject
 
             //  app.UseEndpoints(endpoints =>
             //  {
-            //      endpoints.MapControllerRoute("default", "{controller=Food}/{action=Index}/{id?}");
+            //      endpoints.MapControllerRoute("Default", "{controller=Food}/{action=Index}/{id?}");
             //  });
 
 
